@@ -5,7 +5,7 @@ const categorySchema = new Schema({
     type: String,
     required: true,
   },
-  budgetAmount: {
+  limit: {
     type: Number,
     required: true,
   },
