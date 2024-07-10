@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { Category } = require('./Categories');
+const { Category } = require('./Category');
 
 const budgetSchema = new Schema({
     name: {

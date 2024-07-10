@@ -1,5 +1,5 @@
 const Budget = require('./Budget');
-const { Category, Transaction } = require('./Categories');
+const { Category, Transaction } = require('./Category');
 const User = require('./User');
 
 module.exports = {
