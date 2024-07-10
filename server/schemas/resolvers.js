@@ -99,7 +99,6 @@ module.exports = {
                 throw new Error('Error creating user');
             }
         },
-
         addBudget: async (parent, args) => {
             try {
                 const budget = await Budget.create(args);
@@ -112,7 +111,6 @@ module.exports = {
                 throw new Error('Error creating budget');
             }
         },
-
         addCategory: async (parent, args) => {
             try {
                 const category = await Category.create(args);
@@ -125,7 +123,6 @@ module.exports = {
                 throw new Error('Error creating category');
             }
         },
-
         addTransaction: async (parent, args) => {
             try {
                 const transaction = await Transaction.create(args);
@@ -138,5 +135,32 @@ module.exports = {
                 throw new Error('Error creating transaction');
             }
         },
+
+        updateUser: async (parent, args, context) => {
+            if (context.user) {
+                return await User.findByIdAndUpdate(context.user._id, args, { new: true });  
+            }
+            
+            throw AuthenticationError;
+        },
+        updateBudget: async (parent, { name, limit }) => {
+            return await Budget.findByIdAndUpdate(budgetID, { 
+                name: name, 
+                limit: limit 
+            });
+        },
+        updateCategory: async (parent, { name, limit }) => {
+            return await Category.findByIdAndUpdate(categoryID, { 
+                name: name, 
+                limit: limit 
+            });
+        },
+        updateTransaction: async (parent, { amount, description, date }) => {
+            return await Transaction.findByIdAndUpdate(transactionID, { 
+                amount: amount, 
+                description: description, 
+                date: date 
+            });
+        }
     }
 }
