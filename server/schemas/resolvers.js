@@ -4,6 +4,14 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 
 module.exports = {
     Query: {
+        // Dev Query for testing purposes
+        devUsers: async () => {
+            try {
+                return await User.find({}).populate('budgets');
+            } catch (error) {
+                throw AuthenticationError;
+            }
+        },
 
         // user Query only grabs the current user's budgets
         user: async (parent, args) => {
@@ -117,7 +125,7 @@ module.exports = {
                 throw new Error('Error creating category');
             }
         },
-        
+
         addTransaction: async (parent, args) => {
             try {
                 const transaction = await Transaction.create(args);

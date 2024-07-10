@@ -28,6 +28,8 @@ const typeDefs = `
     }
 
     type Query {
+        devUsers: [User]
+
         user(userID: ID): User
         budget(budgetID: ID): Budget
     }
@@ -38,7 +40,7 @@ const typeDefs = `
         addUser(email: String!, password: String!, budgets: [String]): Auth
         addBudget(name: String!, limit: Int!): Budget
         addCategory(name: String!, limit: Int!): Category
-        addTransaction(amount: Int!, description: String!, date: Date): Transaction
+        addTransaction(amount: Int!, description: String!, date: String): Transaction
     }
 `;
 
