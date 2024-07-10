@@ -2,4 +2,9 @@ const Budget = require('./Budget');
 const { Category, Transaction } = require('./Categories');
 const User = require('./User');
 
-module.exports = {};
+module.exports = {
+    Budget,
+    Category,
+    Transaction,
+    User
+};
