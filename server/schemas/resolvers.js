@@ -161,6 +161,19 @@ module.exports = {
                 description: description, 
                 date: date 
             });
+        },
+
+        deleteUser: async(parent, { userID }) => {
+            return await User.findByIdAndDelete(userID, { new: true })
+        },
+        deleteBudget: async(parent, { budgetID }) => {
+            return await Budget.findByIdAndDelete(budgetID, { new: true })
+        },
+        deleteCategory: async(parent, { categoryID }) => {
+            return await Category.findByIdAndDelete(categoryID, { new: true })
+        },
+        deleteTransaction: async(parent, { transactionID }) => {
+            return await Transaction.findByIdAndDelete(transactionID, { new: true })
         }
     }
 }

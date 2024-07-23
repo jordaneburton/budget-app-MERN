@@ -46,6 +46,11 @@ const typeDefs = `
         updateBudget(budgetID: ID, name: String, limit: Int): Budget
         updateCategory(categoryID: ID, name: String, limit: Int): Category
         updateTransaction(transactionID: ID, amount: Int, description: String, date: String): Transaction
+
+        deleteUser(userID: ID): User
+        deleteBudget(budgetID: ID): Budget
+        deleteCategory(categoryID: ID): Category
+        deleteTransaction(transactionID: ID): Transaction
     }
 `;
 
